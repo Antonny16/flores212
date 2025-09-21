@@ -1,46 +1,68 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Flores Amarillas 🌻</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💐 Feliz 21 de Septiembre 💐</title>
+  <style>
+    body {
+      background-color: pink;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      color: white;
+      font-size: 2.5em;
+      margin-top: 20px;
+      text-shadow: 2px 2px 4px #00000030;
+    }
+    p {
+      font-size: 1.2em;
+      color: white;
+      margin-bottom: 20px;
+    }
+    img {
+      width: 300px;
+      margin: 20px auto;
+      display: block;
+    }
+    video {
+      width: 90%;
+      max-width: 400px;
+      border-radius: 10px;
+      margin: 20px auto;
+      display: block;
+    }
+    button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    button:hover {
+      background-color: #ff1493;
+    }
+  </style>
 </head>
 <body>
+  <h1>✨🌸 Feliz 21 de Septiembre 🌸✨</h1>
+  <p>Que tengas un hermoso día lleno de alegría y amor 💕🌼</p>
 
-    <!-- Mensaje inicial -->
-    <div class="mensaje">
-        <h1>✨🌸 Feliz 21 de Septiembre 🌸✨</h1>
-        <p>Que tengas un hermoso día lleno de alegría y amor 💕🌼</p>
-    </div>
+  <!-- Imagen del ramo -->
+  <img src="ramo.png" alt="Ramo de flores">
 
-    <!-- Botón para iniciar -->
-    <div class="center">
-        <button id="startBtn">🌻 Tocar para empezar 🎶</button>
-    </div>
+  <!-- Video sin sonido -->
+  <video autoplay muted loop playsinline>
+    <source src="video_final.mp4" type="video/mp4">
+    Tu navegador no soporta video.
+  </video>
 
-    <!-- Audio -->
-    <audio id="miAudio">
-        <source src="{{ url_for('static', filename='floresamarillas.mp3') }}" type="audio/mpeg">
-    </audio>
-
-    <!-- Imagen del ramo -->
-    <div id="ramo" style="display: none;">
-        <img src="{{ url_for('static', filename='ramo.png') }}" alt="Ramo de flores">
-    </div>
-
-    <!-- Video sin audio -->
-    <div id="videoFinal" style="display: none;">
-        <video id="miVideo" width="100%" preload="auto">
-            <source src="{{ url_for('static', filename='video.mp4') }}" type="video/mp4">
-        </video>
-    </div>
-
-    <!-- Mensaje final -->
-    <div id="finalMsg" style="display: none;">
-        <h2>💛🌻 Te amo mucho Alexandra Bolívar 🌻💛</h2>
-    </div>
-
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <!-- Botón para reproducir música -->
+  <audio id="musica" src="audio_recortado_47s_60s.mp3"></audio>
+  <button onclick="document.getElementById('musica').play()">🎶 Reproducir canción 💛</button>
 </body>
 </html>
-
