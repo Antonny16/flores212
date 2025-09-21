@@ -21,17 +21,25 @@
       color: white;
       margin-bottom: 20px;
     }
+    img, video, #mensajeFinal {
+      margin: 20px auto;
+      display: none;
+    }
     img {
       width: 300px;
-      margin: 20px auto;
-      display: block;
     }
     video {
       width: 90%;
       max-width: 400px;
       border-radius: 10px;
-      margin: 20px auto;
-      display: block;
+    }
+    #mensajeFinal {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 2px 2px 6px #00000050;
+      margin-top: 30px;
+      animation: aparecer 2s ease-in-out;
     }
     button {
       background-color: #ff69b4;
@@ -46,6 +54,10 @@
     button:hover {
       background-color: #ff1493;
     }
+    @keyframes aparecer {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
   </style>
 </head>
 <body>
@@ -53,16 +65,51 @@
   <p>Que tengas un hermoso día lleno de alegría y amor 💕🌼</p>
 
   <!-- Imagen del ramo -->
-  <img src="ramo.png" alt="Ramo de flores">
+  <img id="ramo" src="ramo.png" alt="Ramo de flores">
 
   <!-- Video sin sonido -->
-  <video autoplay muted loop playsinline>
+  <video id="video" muted>
     <source src="video_final.mp4" type="video/mp4">
     Tu navegador no soporta video.
   </video>
 
-  <!-- Botón para reproducir música -->
+  <!-- Música -->
   <audio id="musica" src="audio_recortado_47s_60s.mp3"></audio>
-  <button onclick="document.getElementById('musica').play()">🎶 Reproducir canción 💛</button>
+
+  <!-- Botón de inicio -->
+  <button id="startBtn">🌻 Tocar para empezar 🎶</button>
+
+  <!-- Mensaje final -->
+  <div id="mensajeFinal">❤️ Te amo mucho, Alexandra Bolívar ❤️</div>
+
+  <script>
+    const btn = document.getElementById("startBtn");
+    const musica = document.getElementById("musica");
+    const ramo = document.getElementById("ramo");
+    const video = document.getElementById("video");
+    const mensajeFinal = document.getElementById("mensajeFinal");
+
+    btn.addEventListener("click", () => {
+      // Reproducir música
+      musica.play().catch(e => console.log("Error con audio:", e));
+
+      // Mostrar ramo inmediatamente
+      ramo.style.display = "block";
+
+      // Mostrar video después de 15s
+      setTimeout(() => {
+        video.style.display = "block";
+        video.play();
+      }, 15000);
+
+      // Ocultar botón
+      btn.style.display = "none";
+    });
+
+    // Cuando termine el video, mostrar el mensaje final
+    video.addEventListener("ended", () => {
+      mensajeFinal.style.display = "block";
+    });
+  </script>
 </body>
 </html>
