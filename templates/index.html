@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Feliz 21 de Septiembre 🌻</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <!-- Botón de inicio (necesario si el navegador bloquea autoplay) -->
+  <div id="overlay">
+    <button id="startBtn">Tocar para empezar 🎶🌻</button>
+  </div>
+
+  <!-- Audio (archivo recortado: 0:47 a 1:00) -->
+  <audio id="audio" preload="auto" src="{{ url_for('static', filename='floresamarillas.mp3') }}"></audio>
+
+  <!-- Mensaje principal -->
+  <div class="mensaje">
+    <h1>✨🌸 Feliz 21 de Septiembre 🌸✨</h1>
+    <p>Que tengas un hermoso día lleno de alegría y amor 💕🌸</p>
+  </div>
+
+  <!-- Contenedor para animaciones (flores pequeñas) -->
+  <div id="flores-container"></div>
+
+  <!-- Ramo (imagen PNG) -->
+  <img id="ramo" src="{{ url_for('static', filename='ramo.png') }}" alt="Ramo de girasoles">
+
+  <!-- Video final (archivo sin audio) -->
+  <video id="video-final" width="720" controls muted style="display:none;">
+    <source src="{{ url_for('static', filename='video.mp4') }}" type="video/mp4">
+  </video>
+
+  <!-- Mensaje final -->
+  <div id="mensaje-final">💖 Te amo mucho Alexandra Bolívar 💖</div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
