@@ -2,112 +2,58 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>💐 Feliz 21 de Septiembre 💐</title>
+  <title>Flores para ti</title>
   <style>
     body {
-      background-color: pink;
+      margin: 0;
+      padding: 0;
       text-align: center;
+      background: pink;
       font-family: Arial, sans-serif;
     }
-    h1 {
-      color: white;
-      font-size: 2.5em;
+    #ramo {
+      width: 200px;
       margin-top: 20px;
-      text-shadow: 2px 2px 4px #00000030;
-    }
-    p {
-      font-size: 1.2em;
-      color: white;
-      margin-bottom: 20px;
-    }
-    img, video, #mensajeFinal {
-      margin: 20px auto;
-      display: none;
-    }
-    img {
-      width: 300px;
-    }
-    video {
-      width: 90%;
-      max-width: 400px;
-      border-radius: 10px;
     }
     #mensajeFinal {
-      font-size: 1.5em;
+      display: none;
+      font-size: 22px;
       font-weight: bold;
+      margin-top: 20px;
       color: #fff;
-      text-shadow: 2px 2px 6px #00000050;
-      margin-top: 30px;
-      animation: aparecer 2s ease-in-out;
-    }
-    button {
-      background-color: #ff69b4;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      font-size: 1em;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 15px;
-    }
-    button:hover {
-      background-color: #ff1493;
-    }
-    @keyframes aparecer {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
+      text-shadow: 2px 2px 4px #000;
     }
   </style>
 </head>
 <body>
-  <h1>✨🌸 Feliz 21 de Septiembre 🌸✨</h1>
-  <p>Que tengas un hermoso día lleno de alegría y amor 💕🌼</p>
+  <h1>🌸✨ Feliz 21 de Septiembre ✨🌸</h1>
+  <p>Que tengas un hermoso día lleno de alegría y amor 💕🌻</p>
 
-  <!-- Imagen del ramo -->
+  <!-- Imagen -->
   <img id="ramo" src="ramo.png" alt="Ramo de flores">
 
-  <!-- Video sin sonido -->
-  <video id="video" muted>
+  <!-- Video -->
+  <video id="video" width="300" autoplay>
     <source src="video_final.mp4" type="video/mp4">
-    Tu navegador no soporta video.
+    Tu navegador no soporta el video.
   </video>
 
   <!-- Música -->
-  <audio id="musica" src="audio_recortado_47s_60s.mp3"></audio>
-
-  <!-- Botón de inicio -->
-  <button id="startBtn">🌻 Tocar para empezar 🎶</button>
+  <audio id="musica" autoplay>
+    <source src="audio_recortado_47s_60s.mp3" type="audio/mpeg">
+    Tu navegador no soporta el audio.
+  </audio>
 
   <!-- Mensaje final -->
   <div id="mensajeFinal">❤️ Te amo mucho, Alexandra Bolívar ❤️</div>
 
   <script>
-    const btn = document.getElementById("startBtn");
-    const musica = document.getElementById("musica");
-    const ramo = document.getElementById("ramo");
     const video = document.getElementById("video");
+    const musica = document.getElementById("musica");
     const mensajeFinal = document.getElementById("mensajeFinal");
 
-    btn.addEventListener("click", () => {
-      // Reproducir música
-      musica.play().catch(e => console.log("Error con audio:", e));
-
-      // Mostrar ramo inmediatamente
-      ramo.style.display = "block";
-
-      // Mostrar video después de 15s
-      setTimeout(() => {
-        video.style.display = "block";
-        video.play();
-      }, 15000);
-
-      // Ocultar botón
-      btn.style.display = "none";
-    });
-
-    // Cuando termine el video, mostrar el mensaje final
-    video.addEventListener("ended", () => {
+    // Mostrar el mensaje final cuando termine la música
+    musica.addEventListener("ended", () => {
       mensajeFinal.style.display = "block";
     });
   </script>
